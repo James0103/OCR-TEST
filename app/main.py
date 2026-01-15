@@ -17,9 +17,12 @@
 #             return app(request)
 
 from fastapi import FastAPI
+from .api.ocr import router as ocr_router
 import os
 
 app = FastAPI()
+
+app.include_router(ocr_router, prefix="/api", tags=["OCR"])
 
 @app.get("/")
 def health_check():
