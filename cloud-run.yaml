@@ -1,0 +1,31 @@
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: ocr-test-service
+  annotations:
+    run.googleapis.com/ingress: all
+spec:
+  template:
+    metadata:
+      annotations:
+        run.googleapis.com/execution-environment: gen2
+    spec:
+      containerConcurrency: 80
+      containers:
+      - image: gcr.io/YOUR_PROJECT_ID/ocr-test:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: NCP_SECRET_KEY
+          value: "YOUR_NCP_SECRET_KEY"
+        - name: NCP_OCR_URL
+          value: "YOUR_NCP_OCR_URL"
+        - name: GOOGLE_CREDENTIALS_PATH
+          value: "/app/credentials.json"
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1Gi"
+          ephemeralStorage:
+            size: "1Gi"

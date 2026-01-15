@@ -1,0 +1,41 @@
+# Environment variables
+.env
+.env.local
+
+# Google Cloud credentials
+credentials.json
+*.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Uploads
+uploads/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+test_existing_sheets.py
+test_ocr_with_sheets.sh
+test_ocr.sh
+test_sheets.py
+GOOGLE_SHEETS_SETUP.md
+CREDENTIALS_MANAGEMENT.md
+test_sheet_api.sh
+test_base64_ocr.sh
+SHEETS_STRUCTURE_GUIDE.md
+debug_sheets.py
