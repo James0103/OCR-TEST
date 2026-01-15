@@ -17,10 +17,19 @@
 #             return app(request)
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware # 추가
 from .api.ocr import router as ocr_router
 import os
 
 app = FastAPI()
+# CORS 설정 추가
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # 테스트를 위해 전체 허용, 이후 특정 도메인으로 제한 가능
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(ocr_router, prefix="/api", tags=["OCR"])
 
