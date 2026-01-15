@@ -40,3 +40,29 @@ chmod +x deploy.sh
 - `NCP_SECRET_KEY`: Naver Clova OCR 시크릿 키
 - `NCP_OCR_URL`: Naver Clova OCR API URL
 - `GOOGLE_CREDENTIALS_PATH`: Google Cloud 인증 파일 경로
+
+## 검증 계획
+
+### 분석 방식
+1. **기본 지표**: CER, WER, 필드 정확도
+2. **비즈니스 가치**: 상품명/가격 추출 정확도
+3. **처리 효율**: 처리 시간 비교
+4. **품질 영향**: 이미지 품질별 성능 비교
+
+### 검증 체계
+1. **단일 테스트**: 영수증 1개씩 수동 진행
+2. **배치 테스트**: 다수 영수증 자동화
+3. **결과 집계**: Google Sheets에서 통계 분석
+4. **최종 보고**: 성능 비교 및 추천
+
+## 🎯 핵심 지표
+- **CER** (Character Error Rate): 문자 수준 오류율
+- **WER** (Word Error Rate): 단어 수준 오류율
+- **Field Accuracy**: 상품명/가격 등 구조화된 정보 정확도
+- **Processing Speed**: 평균 처리 시간
+
+## 🚀 실행 단계
+1. **기반 구축**: 데이터셋 및 스프레드시트 준비
+2. **단일 검증**: 샘플 테스트로 기능 검증
+3. **배치 분석**: 실제 데이터로 성능 측정
+4. **최종 보고**: 객관적 성능 비교 및 권장사항
